@@ -1,0 +1,3 @@
+/Users/nicolasperrault/Desktop/BugAlgorithms/build/CMakeFiles/main.dir
+/Users/nicolasperrault/Desktop/BugAlgorithms/build/CMakeFiles/edit_cache.dir
+/Users/nicolasperrault/Desktop/BugAlgorithms/build/CMakeFiles/rebuild_cache.dir
