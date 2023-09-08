@@ -1,8 +1,10 @@
 #include "World.h"
 #include <iostream>
 #include <list>
+#include "../Robot/Robot.h"
+#include "../Goal/Goal.h"
 
-World::World(int w, int h) : width(w), height(h) {
+World::World(int w, int h, Robot r, std::list<std::pair<int, int> > rV, Goal g) : width(w), height(h), robot(r), robotVertices(rV), goal(g){
     window = SDL_CreateWindow("Dynamic Window",
                               SDL_WINDOWPOS_CENTERED,
                               SDL_WINDOWPOS_CENTERED,
@@ -40,6 +42,40 @@ void World::drawObstacles(){
     }
 }
 
-void World::addRobot(std::list<std::pair<int, int> > robot) {
-    this->robot = robot;
+void World::drawRobot(){
+    SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+    for(std::list<std::pair<int, int>>::iterator it = robotVertices.begin(); it != robotVertices.end(); it++){
+            std::pair<int, int> currentPoint = *it;
+
+            std::list<std::pair<int, int>>::iterator nextIt = it;
+            ++nextIt;
+
+            std::pair<int, int> nextPoint;
+            if (nextIt == robotVertices.end()) {
+                nextPoint = *robotVertices.begin();
+            } else {
+                nextPoint = *nextIt;
+            }
+
+            SDL_RenderDrawLine(renderer, currentPoint.first, currentPoint.second, nextPoint.first, nextPoint.second);
+    }
+}
+
+void World::drawGoal(){
+    SDL_SetRenderDrawColor(renderer, 0, 255, 255, 255);
+    for(std::list<std::pair<int, int>>::iterator it = goal.vertices.begin(); it != goal.vertices.end(); it++){
+            std::pair<int, int> currentPoint = *it;
+
+            std::list<std::pair<int, int>>::iterator nextIt = it;
+            ++nextIt;
+
+            std::pair<int, int> nextPoint;
+            if (nextIt == goal.vertices.end()) {
+                nextPoint = *goal.vertices.begin();
+            } else {
+                nextPoint = *nextIt;
+            }
+
+            SDL_RenderDrawLine(renderer, currentPoint.first, currentPoint.second, nextPoint.first, nextPoint.second);
+    }
 }
