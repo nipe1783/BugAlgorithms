@@ -1,5 +1,6 @@
 #include <iostream>
-# include "classes/World/World.h"
+#include "classes/World/World.h"
+#include <SDL.h>
 
 int main(int argc, char const *argv[])
 {
