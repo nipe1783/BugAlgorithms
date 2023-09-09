@@ -27,4 +27,5 @@ void Robot::sense() {
 
 std::pair<float, float> Robot::smell() {
     float dist = std::sqrt(std::pow(std::get<0>(iPos) - std::get<0>(pGoal->iPos), 2) + std::pow(std::get<1>(iPos) - std::get<1>(pGoal->iPos), 2));
+    float angle = std::atan2(std::get<1>(pGoal->iPos) - std::get<1>(iPos), std::get<0>(pGoal->iPos) - std::get<0>(iPos));
 }
