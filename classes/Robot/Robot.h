@@ -1,11 +1,13 @@
 #pragma once
 
 #include <list>
+#include <tuple>
+#include "../Goal/Goal.h"
 
 class Robot{
 public:
     // Constructors and Destructors
-    Robot(int w, int h);
+    Robot(int w, int h, std::tuple<int, int, float> iP, Goal* g);
     ~Robot();
 
     // Member Functions
@@ -13,9 +15,11 @@ public:
     void moveBackwards(); // moves in body -x direction
     void rotate(float radians); // ccw positive
     void sense(); // sense to see if contacting obstacle
-    void smell(); // smell to see direction to goal
+    std::pair<float, float> smell(); // smell to see direction to goal
 
     // Member Variables
     int width;
     int height;
+    std::tuple<int, int, float> iPos; // intertial position and orientation
+    Goal* pGoal;
 };

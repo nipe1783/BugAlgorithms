@@ -1,7 +1,8 @@
 #include "Robot.h"
+#include "../Goal/Goal.h"
 #include <iostream>
 
-Robot::Robot(int w, int h) : width(w), height(h) {
+Robot::Robot(int w, int h, std::tuple<int, int, float> iP, Goal* g) : width(w), height(h), iPos(iP), pGoal(g){
 }
 
 Robot::~Robot() {
@@ -23,6 +24,6 @@ void Robot::sense() {
     std::cout << "Sensing" << std::endl;
 }
 
-void Robot::smell() {
-    std::cout << "Smelling" << std::endl;
+std::pair<float, float> Robot::smell() {
+    
 }

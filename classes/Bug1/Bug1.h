@@ -1,21 +1,22 @@
 #pragma once
 
 #include <list>
+#include <tuple>
 #include "../Robot/Robot.h"
 #include "../Goal/Goal.h"
 
 class Bug1{
 public:
     // Constructors and Destructors
-    Bug1(Robot r, Goal g);
+    Bug1(Robot r);
     ~Bug1();
 
     // Member Functions
-    void moveForwards(); // moves in body x direction
-    void moveBackwards(); // moves in body -x direction
-    void rotate(float radians); // ccw positive
+    void execute();
 
     // Member Variables
-    std::list<std::pair<int, int> > vertices;
-    std::pair<int, int> iPosition;
+    Robot robot;
+    std::list<std::tuple<int, int, float> > path;
+    float dMin;
+
 };

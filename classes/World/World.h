@@ -8,7 +8,7 @@
 class World {
 public:
     // Constructors and Destructors
-    World(int w, int h, Robot r, std::list<std::pair<int, int> > rV, Goal g);
+    World(int w, int h, Robot r, Goal g);
     ~World();
 
 
@@ -24,6 +24,7 @@ public:
     std::list<std::list<std::pair<int, int> > > obstacles;
     Robot robot;
     std::list<std::pair<int, int> > robotVertices; // inertial robot vertex positions
+    float robotOrientation; // inertial robot orientation
     Goal goal;
     SDL_Window* window;
     SDL_Renderer* renderer;
