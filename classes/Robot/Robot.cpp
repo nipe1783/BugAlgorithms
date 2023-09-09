@@ -1,6 +1,7 @@
 #include "Robot.h"
 #include "../Goal/Goal.h"
 #include <iostream>
+#include <cmath>
 
 Robot::Robot(int w, int h, std::tuple<int, int, float> iP, Goal* g) : width(w), height(h), iPos(iP), pGoal(g){
 }
@@ -25,5 +26,5 @@ void Robot::sense() {
 }
 
 std::pair<float, float> Robot::smell() {
-    
+    float dist = std::sqrt(std::pow(std::get<0>(iPos) - std::get<0>(pGoal->iPos), 2) + std::pow(std::get<1>(iPos) - std::get<1>(pGoal->iPos), 2));
 }

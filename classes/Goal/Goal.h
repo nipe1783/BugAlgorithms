@@ -12,5 +12,5 @@ public:
 
     // Member Variables
     std::list<std::pair<int, int> > vertices;
-    std::pair<int, int> iPosition;
+    std::pair<int, int> iPos;
 };
